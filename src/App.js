@@ -1,18 +1,29 @@
 import React from "react";
-import Info  from './components/Info'
-// import About from './components/About'
-// import Interest from './components/Interest'
-// import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Card from "./components/Card";
+import data from './data'
+import star from './img/Star.png';
 
 
 export default function App() {
+  const cards = data.map(item => {
+    return (
+        <Card 
+            key = {item.id}
+            {...item}
+            icon = {star}
+        />
+    )
+  }
+)
   return(
-    <div className="main">
-      <Info />
-      {/* <About />
-      <Interest />
-      <Footer /> */}
-
+    <div>
+      <Navbar />
+      <Hero />
+      <section className="cards-list">
+        {cards}
+      </section>
     </div>
   )
   
